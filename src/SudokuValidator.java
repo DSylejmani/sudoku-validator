@@ -7,7 +7,7 @@ public class SudokuValidator {
 	public static void main(String [] args) {
 		
 		
-		int [][] test= csvToMatrix("C:\\Users\\drilo\\Desktop\\Sudoku_Validator_Test_Cases\\Test Cases\\sumValidationError.csv");
+		int [][] test= csvToMatrix("C:\\Users\\drilo\\Desktop\\Sudoku_Validator_Test_Cases\\Test Cases\\outOfRangeError2.csv");
 		System.out.println(matrixToString(test));
 		System.out.println(checkMatrix(test));
 
@@ -40,7 +40,7 @@ public class SudokuValidator {
 		//i kontrollojme rreshtat
 		boolean rez=false;
 		for(int i=0; i<matrix.length; i++) {
-			if(checkDuplicates(matrix[i])) {
+			if(!checkValidRow(matrix[i])) {
 				System.out.println("i="+i);
 				return false;
 			}
@@ -52,7 +52,7 @@ public class SudokuValidator {
 			for(int j=0; j<matrix[i].length; j++) {
 			currentColumn[j]=matrix[j][i];
 		}
-			if(checkDuplicates(currentColumn)) {
+			if(!checkValidRow(currentColumn)) {
 				System.out.println("currentcolumn:"+ arrayToString(currentColumn));
 				return false;
 			}
@@ -70,7 +70,7 @@ public class SudokuValidator {
 				}
 			}
 			index=0;
-			if(checkDuplicates(currentSquare)) {
+			if(!checkValidRow(currentSquare)) {
 				System.out.println("currentSquare: "+arrayToString(currentSquare));
 				return false;
 			}
@@ -79,18 +79,20 @@ public class SudokuValidator {
 		return true;
 	}
 	
-	public static boolean checkDuplicates(int [] row) {
+	public static boolean checkValidRow(int [] row) {
 	    HashMap<Integer,Integer> hm= new HashMap<Integer,Integer>();
 	    for(int i=0; i<row.length; i++) {
-	    	
+	    	if(row[i]<1 || row[i]>9 ) {
+	    		return false;
+	    	}
 	    	if(hm.containsKey(row[i])) {
-	    		return true;
+	    		return false;
 	    	}
 	    	else {
 	    		hm.put(row[i],row[i]);
 	    	}
 	    }
-	    return false;
+	    return true;
 	}
 	
 	public static String arrayToString(int [] array) {

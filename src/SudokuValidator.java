@@ -6,28 +6,26 @@ public class SudokuValidator {
 	
 	public static void main(String [] args) {
 		
-		int [][] testCase1= {
-				{1,2,3,4,5,6,7,8,9},
-				{4,5,6,7,8,9,1,2,3},
-				{7,8,9,1,2,3,4,5,6},
-				{9,1,2,3,4,5,6,7,8},
-				{3,4,5,6,7,8,9,1,2},
-				{6,7,8,9,1,2,3,4,5},
-				{8,9,1,2,3,4,5,6,7},
-				{2,3,4,5,6,7,8,9,1},
-				{5,6,7,8,9,1,2,3,4}
-				};
 		
-		System.out.println(checkMatrix(testCase1));
+		int [][] test= csvToMatrix("C:\\Users\\drilo\\Desktop\\Sudoku_Validator_Test_Cases\\Test Cases\\sumValidationError.csv");
+		System.out.println(matrixToString(test));
+		System.out.println(checkMatrix(test));
+
 	}
 	
 	public static int [][] csvToMatrix(String path){
 		int [][] rez=new int[9][9];
+		int currentRow=0;
 		try {
 			Scanner sc = new Scanner(new File(path));
 			sc.useDelimiter(",");
 			while (sc.hasNext()) {
-				//we transform csv file to an array
+				String s=sc.nextLine();
+				String [] nums=s.split(",");
+				for(int i=0; i<nums.length; i++) {
+					rez[currentRow][i]=Integer.parseInt(nums[i]);
+				}
+				currentRow++;
 				
 			}
 			sc.close();
@@ -84,6 +82,7 @@ public class SudokuValidator {
 	public static boolean checkDuplicates(int [] row) {
 	    HashMap<Integer,Integer> hm= new HashMap<Integer,Integer>();
 	    for(int i=0; i<row.length; i++) {
+	    	
 	    	if(hm.containsKey(row[i])) {
 	    		return true;
 	    	}
@@ -100,6 +99,16 @@ public class SudokuValidator {
 	    	 rez=rez+array[i]+", ";
 	     }
 	     return rez;
+	}
+	public static String matrixToString(int [][] matrix) {
+		String rez="";
+		for(int i=0; i<matrix.length; i++) {
+			for(int j=0; j<matrix[i].length; j++) {
+				rez=rez+matrix[i][j]+", ";
+			} 
+			rez=rez+"\n";
+		}
+		return rez;
 	}
 	
 	

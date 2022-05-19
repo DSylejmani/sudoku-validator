@@ -1,4 +1,7 @@
 import java.util.HashMap;
+import java.io.File; 
+import java.io.FileNotFoundException;
+import java.util.Scanner;  
 public class SudokuValidator {
 	
 	public static void main(String [] args) {
@@ -17,6 +20,23 @@ public class SudokuValidator {
 		
 		System.out.println(checkMatrix(testCase1));
 	}
+	
+	public static int [][] csvToMatrix(String path){
+		int [][] rez=new int[9][9];
+		try {
+			Scanner sc = new Scanner(new File(path));
+			sc.useDelimiter(",");
+			while (sc.hasNext()) {
+				//we transform csv file to an array
+				
+			}
+			sc.close();
+			}
+		catch (FileNotFoundException e) {
+			System.out.println("File was not found.");
+		}
+		return rez;
+		}
 
 	public static boolean checkMatrix(int [][] matrix) {
 		//i kontrollojme rreshtat

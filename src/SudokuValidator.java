@@ -56,9 +56,7 @@ public class SudokuValidator {
 				System.out.println("currentSquare: "+arrayToString(currentSquare));
 				return false;
 			}
-		}
-//			
-//			
+		}			
 		}
 		return true;
 	}

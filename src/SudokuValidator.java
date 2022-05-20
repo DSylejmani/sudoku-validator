@@ -8,7 +8,7 @@ public class SudokuValidator {
 	public static void main(String[] args) {
 		// This variable keeps track of the File Names and the Expected Outputs
 		String[][] tests = {
-				// File Name				Expected Output
+				// File Name                Expected Output
 				{ "basicGrid.csv",          "Valid" }, 
 				{ "basicGrid2.csv",         "Valid" },
 				{ "columnError.csv",        "Not Valid" }, 

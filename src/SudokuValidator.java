@@ -5,11 +5,34 @@ import java.util.Scanner;
 public class SudokuValidator {
 	
 	public static void main(String [] args) {
+		String [][] tests= {
+				{"basicGrid.csv",			"Valid"},
+				{"basicGrid2.csv",			"Valid"},
+				{"columnError.csv",			"Not Valid"},
+				{"outOfRangeError.csv",		"Not Valid"},
+				{"outOfRangeError2.csv",	"Not Valid"},
+				{"rowError.csv",			"Not Valid"},
+				{"rubbishError.csv",		"Not Valid"},
+				{"subGridError.csv",		"Not Valid"},
+				{"sumValidationError.csv",	"Not Valid"}
+		};
+		for(int i=0; i<tests.length; i++) {
+			int [][] testMatrix=csvToMatrix("Test Cases\\"+tests[i][0]);
+			System.out.println("-----------------------------------");
+			System.out.println("The Sudoku inside "+tests[i][0]);
+			System.out.println(matrixToString(testMatrix));
+			System.out.println("Expected: "+tests[i][1]);
+			if(checkMatrix(testMatrix)) {
+				System.out.println("Result: Valid");
+			}
+			else {
+				System.out.println("Result: Not Valid");
+			}
+			System.out.println("-----------------------------------");
+
+		}
 		
 		
-		int [][] test= csvToMatrix("C:\\Users\\drilo\\Desktop\\Sudoku_Validator_Test_Cases\\Test Cases\\outOfRangeError2.csv");
-		System.out.println(matrixToString(test));
-		System.out.println(checkMatrix(test));
 
 	}
 	
@@ -41,7 +64,7 @@ public class SudokuValidator {
 		boolean rez=false;
 		for(int i=0; i<matrix.length; i++) {
 			if(!checkValidRow(matrix[i])) {
-				System.out.println("i="+i);
+			//	System.out.println("i="+i);
 				return false;
 			}
 		}
@@ -53,7 +76,7 @@ public class SudokuValidator {
 			currentColumn[j]=matrix[j][i];
 		}
 			if(!checkValidRow(currentColumn)) {
-				System.out.println("currentcolumn:"+ arrayToString(currentColumn));
+		//		System.out.println("currentcolumn:"+ arrayToString(currentColumn));
 				return false;
 			}
 		}
@@ -71,7 +94,7 @@ public class SudokuValidator {
 			}
 			index=0;
 			if(!checkValidRow(currentSquare)) {
-				System.out.println("currentSquare: "+arrayToString(currentSquare));
+		//		System.out.println("currentSquare: "+arrayToString(currentSquare));
 				return false;
 			}
 		}			

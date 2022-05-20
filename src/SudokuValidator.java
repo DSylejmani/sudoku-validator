@@ -9,7 +9,7 @@ public class SudokuValidator {
 		// This variable keeps track of the File Names and the Expected Outputs
 		String[][] tests = {
 				// File Name				Expected Output
-				{ "basicGrid.csv", 	        "Valid" }, 
+				{ "basicGrid.csv",          "Valid" }, 
 				{ "basicGrid2.csv",         "Valid" },
 				{ "columnError.csv",        "Not Valid" }, 
 				{ "outOfRangeError.csv",    "Not Valid" },

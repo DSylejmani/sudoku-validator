@@ -7,7 +7,7 @@ to read and transform CSV files to Java 2D arrays. I checked 3 Sudoku rules:
 All of the test cases that you send via CSV format are being read and evaluated using my solution.
 
 ## running the code
-To run the program just run the Sudoku.java located inside the src folder. Running the program will display: 
+To run the program just run the SudokuValidator.java located inside the src folder. Running the program will display: 
 - The file that is being tested 
 - The Sudoku itself 
 - The expected value 

@@ -9,14 +9,14 @@ public class SudokuValidator {
 		// This variable keeps track of the File Names and the Expected Outputs
 		String[][] tests = {
 				// File Name				Expected Output
-				{ "basicGrid.csv", 			"Valid" }, 
-				{ "basicGrid2.csv", 		"Valid" },
-				{ "columnError.csv", 		"Not Valid" }, 
-				{ "outOfRangeError.csv", 	"Not Valid" },
-				{ "outOfRangeError2.csv",	"Not Valid" }, 
-				{ "rowError.csv", 			"Not Valid" },
-				{ "rubbishError.csv", 		"Not Valid" }, 
-				{ "subGridError.csv", 		"Not Valid" },
+				{ "basicGrid.csv", 	        "Valid" }, 
+				{ "basicGrid2.csv",         "Valid" },
+				{ "columnError.csv",        "Not Valid" }, 
+				{ "outOfRangeError.csv",    "Not Valid" },
+				{ "outOfRangeError2.csv",   "Not Valid" }, 
+				{ "rowError.csv",           "Not Valid" },
+				{ "rubbishError.csv",       "Not Valid" }, 
+				{ "subGridError.csv",       "Not Valid" },
 				{ "sumValidationError.csv", "Not Valid" } 
 			};
 		// Here we print info about each Test Case
